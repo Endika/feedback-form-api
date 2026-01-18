@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=true
+      - APP_NAME=feedback-form-system
+      - API_SECRET_KEY=development-secret-key-minimum-32-characters-long
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    command: uvicorn presentation.api.main:app --host 0.0.0.0 --port 8000 --reload
