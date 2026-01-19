@@ -68,7 +68,7 @@ run:
 	poetry run uvicorn presentation.api.main:app --reload --host 0.0.0.0 --port 8000
 
 docker-build:
-	docker build -t feedback-form-system:latest .
+	docker compose build
 
 docker-up:
 	docker-compose up -d
